@@ -7,167 +7,211 @@
   <meta name="description" content="Uiji Hwang — Integrated M.S.–Ph.D. student at Hanyang University (HYU NLP Lab)." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --pink-50:#fff1f7; /* very light */
-      --pink-100:#ffe4ef;
-      --pink-200:#ffc8df;
-      --pink-300:#ffa3c8;
-      --pink-400:#ff7bab;
-      --pink-500:#ff4f90; /* primary */
-      --pink-600:#e23a7d;
-      --pink-700:#bf2f68;
-      --bg:#fff8fb;
-      --text:#2a2230;
-      --muted:#6b5a6a;
-      --card:#ffffff;
-      --ring: var(--pink-300);
-      --shadow: 0 8px 24px rgba(255,79,144,.15);
+      --pink-50:#fff1f7; --pink-100:#ffe4ef; --pink-200:#ffc8df; --pink-300:#ffa3c8; --pink-400:#ff7bab;
+      --pink-500:#ff4f90; --pink-600:#e23a7d; --pink-700:#bf2f68; --pink-800:#9e2757;
+      --bg:#fff8fb; --text:#20131d; --muted:#6d5a6a; --card:#ffffff; --ring: var(--pink-300);
+      --shadow-lg: 0 16px 40px rgba(255,79,144,.18); --shadow-md: 0 10px 24px rgba(255,79,144,.14);
+      --radius: 18px; --radius-lg: 26px; --maxw: 1080px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Apple SD Gothic Neo,AppleGothic,"Noto Sans KR",sans-serif;line-height:1.5}
-    a{color:var(--pink-600);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .wrap{max-width:960px;margin:40px auto 96px;padding:0 20px}
-    header{display:flex;gap:24px;align-items:center;background:linear-gradient(135deg,var(--pink-50),transparent 60%);padding:24px;border-radius:24px;box-shadow:var(--shadow)}
-    .avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:4px solid var(--pink-200);background:#fff}
-    .title h1{font-family:"Playfair Display",serif;font-size:2.1rem;line-height:1.1;margin:0 0 6px;color:#20131d}
-    .subtitle{font-weight:600;color:var(--pink-700);letter-spacing:.3px}
-    .meta{margin-top:2px;color:var(--muted)}
-    .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .badge{background:var(--pink-100);color:var(--pink-700);padding:6px 10px;border-radius:999px;font-size:.85rem;border:1px solid var(--pink-200)}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:"Plus Jakarta Sans",Inter,system-ui,"Noto Sans KR",sans-serif}
+    a{color:var(--pink-700);text-decoration:none}
+    a:hover{opacity:.9}
+    .container{max-width:var(--maxw);margin:0 auto;padding:24px}
 
-    .grid{display:grid;gap:18px;margin-top:28px}
-    @media(min-width:840px){.grid{grid-template-columns:1.2fr .8fr}}
+    /* --- TOP NAV --- */
+    .nav{position:sticky;top:0;backdrop-filter:saturate(180%) blur(10px);background:linear-gradient(180deg, rgba(255,241,247,.85), rgba(255,241,247,.55));border-bottom:1px solid var(--pink-100);z-index:50}
+    .nav-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px}
+    .brand{display:flex;gap:12px;align-items:center;font-weight:800}
+    .dot{width:10px;height:10px;background:var(--pink-500);border-radius:50%;box-shadow:0 0 0 6px var(--pink-100)}
+    .nav a{font-weight:600;margin-left:16px}
 
-    section{background:var(--card);border-radius:20px;padding:20px 22px;box-shadow:var(--shadow);border:1px solid var(--pink-100)}
-    section h2{margin:0 0 12px;font-size:1.25rem;border-left:6px solid var(--pink-400);padding-left:10px}
+    /* --- HERO --- */
+    .hero{display:grid;gap:24px;grid-template-columns:1.2fr .8fr;margin-top:28px}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--pink-100);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)}
+    .hero-left{padding:28px;background:linear-gradient(135deg,var(--pink-50),#fff 60%)}
+    .kicker{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border:1px solid var(--pink-200);background:var(--pink-50);border-radius:999px;font-weight:700;color:var(--pink-700)}
+    h1{font-size:2.3rem;line-height:1.15;margin:14px 0 8px}
+    .sub{color:var(--muted);font-weight:600}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+    .chip{padding:8px 12px;border-radius:999px;background:var(--pink-100);border:1px solid var(--pink-200);font-weight:700;color:var(--pink-700)}
+    .cta{display:flex;gap:12px;margin-top:16px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;border:1px solid var(--pink-300);font-weight:800}
+    .btn.primary{background:var(--pink-500);border-color:var(--pink-600);color:white;box-shadow:0 10px 24px rgba(255,79,144,.28)}
 
-    .list{display:grid;gap:12px}
-    .item{padding:10px 12px;border:1px solid var(--pink-100);border-radius:14px;background:linear-gradient(180deg,#fff, var(--pink-50));box-shadow:0 3px 12px rgba(255,79,144,.07)}
-    .item-title{font-weight:700}
-    .item-meta{font-size:.92rem;color:var(--muted)}
+    .hero-right{display:grid;gap:16px;padding:20px}
+    .mini{padding:18px}
+    .label{font-size:.86rem;color:var(--muted);margin-bottom:4px}
+    .mono{font-family:ui-monospace,Menlo,Consolas,monospace}
 
-    .pill-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:var(--pink-500);color:white;font-weight:600;box-shadow:0 6px 16px rgba(255,79,144,.3)}
-    .pill.secondary{background:var(--pink-100);color:var(--pink-700);font-weight:700;border:1px solid var(--pink-300)}
+    /* --- SECTIONS --- */
+    section{margin-top:34px}
+    section h2{display:flex;align-items:center;gap:10px;margin:0 0 14px;font-size:1.35rem}
+    .accent{display:inline-block;width:12px;height:12px;border-radius:3px;background:linear-gradient(135deg,var(--pink-500),var(--pink-300))}
 
-    footer{margin-top:28px;text-align:center;color:var(--muted)}
-    .hr{height:1px;background:linear-gradient(90deg,transparent,var(--pink-300),transparent);margin:26px 0}
+    .grid{display:grid;gap:16px}
+    @media(min-width:900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+    @media(min-width:1100px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
 
-    /* small helper classes */
+    .item{background:var(--card);border:1px solid var(--pink-100);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-md)}
+    .item h3{margin:0 0 6px;font-size:1.05rem}
     .muted{color:var(--muted)}
-    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .tag{font-size:.82rem;padding:6px 10px;border-radius:999px;background:var(--pink-50);border:1px solid var(--pink-200);color:var(--pink-800);font-weight:700}
+
+    /* --- FOOTER --- */
+    footer{margin:40px 0 20px;text-align:center;color:var(--muted)}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <!-- Replace src with your own avatar image URL -->
-      <img class="avatar" src="https://avatars.githubusercontent.com/u/00000000?v=4" alt="Avatar" />
-      <div class="title">
-        <h1>Uiji Hwang</h1>
-        <div class="subtitle">Integrated M.S.–Ph.D. Student · Hanyang University (HYU NLP Lab)</div>
-        <div class="meta">Advisor: Prof. Taeuk Kim · Email: <a href="mailto:willpower@hanyang.ac.kr">willpower@hanyang.ac.kr</a></div>
-        <div class="badges">
-          <span class="badge">Mechanistic Interpretability</span>
-          <span class="badge">Knowledge Editing</span>
-          <span class="badge">Unlearning</span>
-          <span class="badge">Multilingual Safety</span>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand"><span class="dot"></span> Uiji Hwang</div>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- HERO -------------------------------------------------------------- -->
+    <div class="hero">
+      <div class="hero-left card">
+        <span class="kicker">Integrated M.S.–Ph.D. · HYU NLP Lab</span>
+        <h1>Researching <span style="color:var(--pink-700)">interpretable</span> & <span style="color:var(--pink-700)">controllable</span> language models</h1>
+        <div class="sub">Hanyang University · Advisor: <a href="https://scholar.google.com/citations?user=eH5uq7wAAAAJ" target="_blank" rel="noreferrer">Prof. Taeuk Kim</a> · B.S. Chung‑Ang University</div>
+        <div class="chips">
+          <span class="chip">Mechanistic Interpretability</span>
+          <span class="chip">Knowledge Editing</span>
+          <span class="chip">Unlearning</span>
+          <span class="chip">Multilingual Safety</span>
         </div>
-        <div class="pill-links">
-          <a class="pill" href="https://github.com/your-github" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="pill secondary" href="#contact">Contact</a>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/hyuiji" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="https://sites.google.com/view/hyu-nlp/home?authuser=0" target="_blank" rel="noreferrer">HYU NLP Lab</a>
         </div>
       </div>
-    </header>
-
-    <div class="grid">
-      <section aria-labelledby="about">
-        <h2 id="about">About Me</h2>
-        <p>
-          I am an Integrated M.S.–Ph.D. student in Computer Science at <strong>Hanyang University</strong>, affiliated with the <strong>HYU NLP Lab</strong>.
-          I broadly study how large language models represent, acquire, and transform knowledge — and how we can <em>reliably manipulate</em> that knowledge post hoc.
-          Prior to HYU, I completed my B.S. at <strong>Chung‑Ang University</strong>.
-        </p>
-        <p>
-          My current interests include <strong>mechanistic interpretability</strong>, 
-          <strong>knowledge editing</strong>, <strong>machine unlearning</strong>, and
-          <strong>multilingual safety</strong>. I aim to bridge scientific understanding with
-          practical tooling for safer, controllable AI systems.
-        </p>
-      </section>
-
-      <section aria-labelledby="contact">
-        <h2 id="contact">Contact</h2>
-        <div class="list">
-          <div class="item">
-            <div class="item-title">Email</div>
-            <div class="item-meta"><a href="mailto:willpower@hanyang.ac.kr">willpower@hanyang.ac.kr</a></div>
-          </div>
-          <div class="item">
-            <div class="item-title">Affiliation</div>
-            <div class="item-meta">HYU NLP Lab, Hanyang University</div>
-          </div>
-          <div class="item">
-            <div class="item-title">GitHub</div>
-            <div class="item-meta"><a href="https://github.com/your-github" target="_blank" rel="noreferrer">github.com/your-github</a></div>
-          </div>
+      <div class="hero-right">
+        <div class="mini card">
+          <div class="label">Email</div>
+          <div><a href="mailto:willpower@hanyang.ac.kr">willpower@hanyang.ac.kr</a></div>
         </div>
-      </section>
+        <div class="mini card">
+          <div class="label">Affiliation</div>
+          <div>HYU NLP Lab, Hanyang University</div>
+        </div>
+        <div class="mini card">
+          <div class="label">Location</div>
+          <div>Seoul, Republic of Korea</div>
+        </div>
+      </div>
     </div>
 
-    <section aria-labelledby="research">
-      <h2 id="research">Research Interests</h2>
-      <ul>
-        <li>Mechanistic interpretability of LLMs (circuits, features, attribution)</li>
-        <li>Post‑hoc controllability: knowledge editing, unlearning, steering</li>
-        <li>Multilingual safety & evaluation (privacy, TDM, jailbreak robustness)</li>
-      </ul>
+    <!-- ABOUT ------------------------------------------------------------- -->
+    <section id="about">
+      <h2><span class="accent"></span> About Me</h2>
+      <div class="item">
+        <p>
+          I am an Integrated M.S.–Ph.D. student at <strong>Hanyang University</strong>, affiliated with the
+          <strong>HYU NLP Lab</strong>. I study how large language models acquire and structure knowledge
+          and how we can <em>reliably manipulate</em> it post hoc. My approach treats LLMs as objects of
+          scientific inquiry, drawing on <strong>mechanistic interpretability</strong> to open their inner workings
+          and deliver practical methods for <strong>knowledge editing</strong> and <strong>unlearning</strong>.
+        </p>
+      </div>
     </section>
 
-    <section aria-labelledby="news">
-      <h2 id="news">News</h2>
-      <div class="list">
-        <!-- Replace with your real news; keep newest on top -->
+    <!-- PROJECTS ---------------------------------------------------------- -->
+    <section id="projects">
+      <h2><span class="accent"></span> Projects</h2>
+      <div class="grid cols-3">
         <div class="item">
-          <div class="item-title">[YYYY.MM] Your big update here 🎉</div>
-          <div class="item-meta">Short one‑liner about the update (paper accepted, talk, release, etc.).</div>
+          <h3>Gemmascope-SAE</h3>
+          <div class="muted">Sparse autoencoders for feature discovery in small LLMs; tools for circuit tracing.</div>
+          <div class="tags"><span class="tag">SAE</span><span class="tag">Mechanistic</span><span class="tag">Llama/Gemma</span></div>
+        </div>
+        <div class="item">
+          <h3>Open‑Unlearning</h3>
+          <div class="muted">Evaluation harness for editing & unlearning (TOFU/WMDP/etc.) with safety metrics.</div>
+          <div class="tags"><span class="tag">Unlearning</span><span class="tag">Editing</span><span class="tag">Benchmarks</span></div>
+        </div>
+        <div class="item">
+          <h3>Multilingual Safety Probe</h3>
+          <div class="muted">Cross‑lingual jailbreak & privacy stress‑tests; steering features for robust refusal.</div>
+          <div class="tags"><span class="tag">Multilingual</span><span class="tag">Safety</span><span class="tag">Evaluation</span></div>
         </div>
       </div>
     </section>
 
-    <section aria-labelledby="pubs">
-      <h2 id="pubs">Selected Publications</h2>
-      <div class="list">
-        <!-- TEMPLATE: duplicate .item blocks for each work -->
-        <article class="item">
-          <div class="item-title">Paper Title Goes Here</div>
-          <div class="item-meta">Authors. <em>Venue</em>, Year. 
-            <span class="mono">[<a href="#">PDF</a>] [<a href="#">Code</a>] [<a href="#">BibTeX</a>]</span>
+    <!-- PUBLICATIONS ------------------------------------------------------ -->
+    <section id="publications">
+      <h2><span class="accent"></span> Selected Publications</h2>
+      <div class="grid cols-2">
+        <div class="item">
+          <h3>Does Localization Inform Unlearning? A Rigorous Examination of Local Parameter Attribution for Knowledge Unlearning in Language Models</h3>
+          <div class="muted">Hwiyeong Lee, Uiji Hwang, Hyelim Lim, Taeuk Kim. <em>EMNLP 2025 (Main)</em>.</div>
+          <div class="tags"><span class="tag mono"><a href="#">PDF</a></span><span class="tag mono"><a href="#">Code</a></span><span class="tag mono"><a href="#">BibTeX</a></span></div>
+        </div>
+        <div class="item">
+          <h3>Memorization or Reasoning? Exploring the Idiom Understanding of LLMs</h3>
+          <div class="muted">Jisu Kim, Youngwoo Shin, <strong>Uiji Hwang</strong>, Jihun Choi, Richeng Xuan, Taeuk Kim. <em>EMNLP 2025</em>.</div>
+          <div class="tags">
+            <span class="tag mono"><a href="https://arxiv.org/pdf/2505.16216" target="_blank" rel="noreferrer">PDF</a></span>
+            <span class="tag mono"><a href="https://arxiv.org/abs/2505.16216" target="_blank" rel="noreferrer">arXiv</a></span>
+            <span class="tag mono"><a href="#">BibTeX</a></span>
           </div>
-        </article>
+        </div>
       </div>
     </section>
 
-    <section aria-labelledby="edu">
-      <h2 id="edu">Education</h2>
-      <ul>
-        <li><strong>Hanyang University</strong> — Integrated M.S.–Ph.D. in Computer Science (HYU NLP Lab) · <span class="muted">Sep. 2024 – Present</span></li>
-        <li><strong>Chung‑Ang University</strong> — B.S., <span class="muted">(Year – Year)</span></li>
-      </ul>
+    <!-- NEWS -------------------------------------------------------------- -->
+    <section id="news">
+      <h2><span class="accent"></span> News</h2>
+      <div class="grid">
+        <div class="item">
+          <h3>[Aug. 2025] 🎉 EMNLP 2025 Main Acceptance</h3>
+          <div class="muted">Our paper on localization & unlearning was accepted to EMNLP 2025. See you in Suzhou!</div>
+        </div>
+      </div>
     </section>
 
-    <div class="hr"></div>
-    <footer>
-      © <span id="year"></span> Uiji Hwang · Built with ♥ on GitHub Pages
-    </footer>
+    <!-- EDUCATION --------------------------------------------------------- -->
+    <section id="education">
+      <h2><span class="accent"></span> Education</h2>
+      <div class="grid cols-2">
+        <div class="item">
+          <h3>Hanyang University</h3>
+          <div class="muted">Integrated M.S.–Ph.D., Computer Science · HYU NLP Lab · Sep. 2024 – Present</div>
+        </div>
+        <div class="item">
+          <h3>Chung‑Ang University</h3>
+          <div class="muted">B.S., Industrial & Information Systems Engineering · Mar. 2018 – Aug. 2024</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT ----------------------------------------------------------- -->
+    <section id="contact">
+      <h2><span class="accent"></span> Contact</h2>
+      <div class="grid cols-3">
+        <div class="item"><h3>Email</h3><div class="muted"><a href="mailto:willpower@hanyang.ac.kr">willpower@hanyang.ac.kr</a></div></div>
+        <div class="item"><h3>GitHub</h3><div class="muted"><a href="https://github.com/hyuiji" target="_blank" rel="noreferrer">github.com/hyuiji</a></div></div>
+        <div class="item"><h3>Lab</h3><div class="muted"><a href="https://sites.google.com/view/hyu-nlp/home?authuser=0" target="_blank" rel="noreferrer">HYU NLP Lab</a></div></div>
+      </div>
+    </section>
+
+    <footer>© <span id="year"></span> Uiji Hwang · Built with ♥ on GitHub Pages</footer>
   </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
