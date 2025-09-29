@@ -1,23 +1,173 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>의지 · 포트폴리오</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Uiji Hwang · Portfolio</title>
+  <meta name="description" content="Uiji Hwang — Integrated M.S.–Ph.D. student at Hanyang University (HYU NLP Lab)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --pink-50:#fff1f7; /* very light */
+      --pink-100:#ffe4ef;
+      --pink-200:#ffc8df;
+      --pink-300:#ffa3c8;
+      --pink-400:#ff7bab;
+      --pink-500:#ff4f90; /* primary */
+      --pink-600:#e23a7d;
+      --pink-700:#bf2f68;
+      --bg:#fff8fb;
+      --text:#2a2230;
+      --muted:#6b5a6a;
+      --card:#ffffff;
+      --ring: var(--pink-300);
+      --shadow: 0 8px 24px rgba(255,79,144,.15);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Apple SD Gothic Neo,AppleGothic,"Noto Sans KR",sans-serif;line-height:1.5}
+    a{color:var(--pink-600);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:960px;margin:40px auto 96px;padding:0 20px}
+    header{display:flex;gap:24px;align-items:center;background:linear-gradient(135deg,var(--pink-50),transparent 60%);padding:24px;border-radius:24px;box-shadow:var(--shadow)}
+    .avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:4px solid var(--pink-200);background:#fff}
+    .title h1{font-family:"Playfair Display",serif;font-size:2.1rem;line-height:1.1;margin:0 0 6px;color:#20131d}
+    .subtitle{font-weight:600;color:var(--pink-700);letter-spacing:.3px}
+    .meta{margin-top:2px;color:var(--muted)}
+    .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .badge{background:var(--pink-100);color:var(--pink-700);padding:6px 10px;border-radius:999px;font-size:.85rem;border:1px solid var(--pink-200)}
+
+    .grid{display:grid;gap:18px;margin-top:28px}
+    @media(min-width:840px){.grid{grid-template-columns:1.2fr .8fr}}
+
+    section{background:var(--card);border-radius:20px;padding:20px 22px;box-shadow:var(--shadow);border:1px solid var(--pink-100)}
+    section h2{margin:0 0 12px;font-size:1.25rem;border-left:6px solid var(--pink-400);padding-left:10px}
+
+    .list{display:grid;gap:12px}
+    .item{padding:10px 12px;border:1px solid var(--pink-100);border-radius:14px;background:linear-gradient(180deg,#fff, var(--pink-50));box-shadow:0 3px 12px rgba(255,79,144,.07)}
+    .item-title{font-weight:700}
+    .item-meta{font-size:.92rem;color:var(--muted)}
+
+    .pill-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:var(--pink-500);color:white;font-weight:600;box-shadow:0 6px 16px rgba(255,79,144,.3)}
+    .pill.secondary{background:var(--pink-100);color:var(--pink-700);font-weight:700;border:1px solid var(--pink-300)}
+
+    footer{margin-top:28px;text-align:center;color:var(--muted)}
+    .hr{height:1px;background:linear-gradient(90deg,transparent,var(--pink-300),transparent);margin:26px 0}
+
+    /* small helper classes */
+    .muted{color:var(--muted)}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+  </style>
 </head>
 <body>
-  <main>
-    <h1>안녕하세요, 의지입니다.</h1>
-    <p>AI·법·정책/ER, 연구 및 실무 포트폴리오를 정리합니다.</p>
-    <ul>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#papers">Papers</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <section id="work"><h2>Work</h2><p>주요 프로젝트를 여기에.</p></section>
-    <section id="papers"><h2>Papers</h2><p>논문/발표 링크.</p></section>
-    <section id="contact"><h2>Contact</h2><p>willpower@hanyang.ac.kr</p></section>
-  </main>
+  <div class="wrap">
+    <header>
+      <!-- Replace src with your own avatar image URL -->
+      <img class="avatar" src="https://avatars.githubusercontent.com/u/00000000?v=4" alt="Avatar" />
+      <div class="title">
+        <h1>Uiji Hwang</h1>
+        <div class="subtitle">Integrated M.S.–Ph.D. Student · Hanyang University (HYU NLP Lab)</div>
+        <div class="meta">Advisor: Prof. Taeuk Kim · Email: <a href="mailto:willpower@hanyang.ac.kr">willpower@hanyang.ac.kr</a></div>
+        <div class="badges">
+          <span class="badge">Mechanistic Interpretability</span>
+          <span class="badge">Knowledge Editing</span>
+          <span class="badge">Unlearning</span>
+          <span class="badge">Multilingual Safety</span>
+        </div>
+        <div class="pill-links">
+          <a class="pill" href="https://github.com/your-github" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="pill secondary" href="#contact">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section aria-labelledby="about">
+        <h2 id="about">About Me</h2>
+        <p>
+          I am an Integrated M.S.–Ph.D. student in Computer Science at <strong>Hanyang University</strong>, affiliated with the <strong>HYU NLP Lab</strong>.
+          I broadly study how large language models represent, acquire, and transform knowledge — and how we can <em>reliably manipulate</em> that knowledge post hoc.
+          Prior to HYU, I completed my B.S. at <strong>Chung‑Ang University</strong>.
+        </p>
+        <p>
+          My current interests include <strong>mechanistic interpretability</strong>, 
+          <strong>knowledge editing</strong>, <strong>machine unlearning</strong>, and
+          <strong>multilingual safety</strong>. I aim to bridge scientific understanding with
+          practical tooling for safer, controllable AI systems.
+        </p>
+      </section>
+
+      <section aria-labelledby="contact">
+        <h2 id="contact">Contact</h2>
+        <div class="list">
+          <div class="item">
+            <div class="item-title">Email</div>
+            <div class="item-meta"><a href="mailto:willpower@hanyang.ac.kr">willpower@hanyang.ac.kr</a></div>
+          </div>
+          <div class="item">
+            <div class="item-title">Affiliation</div>
+            <div class="item-meta">HYU NLP Lab, Hanyang University</div>
+          </div>
+          <div class="item">
+            <div class="item-title">GitHub</div>
+            <div class="item-meta"><a href="https://github.com/your-github" target="_blank" rel="noreferrer">github.com/your-github</a></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section aria-labelledby="research">
+      <h2 id="research">Research Interests</h2>
+      <ul>
+        <li>Mechanistic interpretability of LLMs (circuits, features, attribution)</li>
+        <li>Post‑hoc controllability: knowledge editing, unlearning, steering</li>
+        <li>Multilingual safety & evaluation (privacy, TDM, jailbreak robustness)</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="news">
+      <h2 id="news">News</h2>
+      <div class="list">
+        <!-- Replace with your real news; keep newest on top -->
+        <div class="item">
+          <div class="item-title">[YYYY.MM] Your big update here 🎉</div>
+          <div class="item-meta">Short one‑liner about the update (paper accepted, talk, release, etc.).</div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="pubs">
+      <h2 id="pubs">Selected Publications</h2>
+      <div class="list">
+        <!-- TEMPLATE: duplicate .item blocks for each work -->
+        <article class="item">
+          <div class="item-title">Paper Title Goes Here</div>
+          <div class="item-meta">Authors. <em>Venue</em>, Year. 
+            <span class="mono">[<a href="#">PDF</a>] [<a href="#">Code</a>] [<a href="#">BibTeX</a>]</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="edu">
+      <h2 id="edu">Education</h2>
+      <ul>
+        <li><strong>Hanyang University</strong> — Integrated M.S.–Ph.D. in Computer Science (HYU NLP Lab) · <span class="muted">Sep. 2024 – Present</span></li>
+        <li><strong>Chung‑Ang University</strong> — B.S., <span class="muted">(Year – Year)</span></li>
+      </ul>
+    </section>
+
+    <div class="hr"></div>
+    <footer>
+      © <span id="year"></span> Uiji Hwang · Built with ♥ on GitHub Pages
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
