@@ -71,6 +71,7 @@
       width: 100%; height: 100%;
       border-radius: 12px;
       object-fit: cover;
+      /* object-position: top; <-- 만약 얼굴이 잘리면 이 주석을 해제하세요 */
       box-shadow: var(--shadow-md);
       background: #fff;
     }
@@ -153,8 +154,9 @@
       display: inline-block;
       margin-bottom: 6px;
       line-height: 1.4;
+      cursor: pointer;
     }
-    .item-title:hover { color: var(--accent); }
+    .item-title:hover { color: var(--accent); text-decoration: underline; }
     
     .item-meta { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 8px; line-height: 1.5; }
     .item-desc { font-size: 0.95rem; color: var(--text-muted); margin-top: 8px; }
@@ -206,12 +208,13 @@
     <aside class="sidebar">
       <div class="profile-card">
         <div class="avatar-wrap">
-          <!-- Placeholder image: Replace with your actual photo URL -->
-          <img class="avatar" src="https://avatars.githubusercontent.com/u/00000000?v=4" alt="Uiji Hwang" />
+          <!-- User uploaded photo -->
+          <img class="avatar" src="KakaoTalk_Photo_2026-01-20-10-10-38.jpg" alt="Uiji Hwang" />
         </div>
         
         <h1 class="name">Uiji Hwang</h1>
-        <div class="role">Ph.D. Student in NLP/AI</div>
+        <!-- Role Updated -->
+        <div class="role">M.S. Student in NLP/AI</div>
         
         <div class="meta-info">
           <div>Hanyang University</div>
